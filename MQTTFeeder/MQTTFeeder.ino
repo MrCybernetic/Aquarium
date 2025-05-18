@@ -3,9 +3,8 @@
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
+#include "secrets.h"
 
-const char *ssid = "Livebox-6460";
-const char *password = "JWSdd26XzYidxKVsMs";
 const char *mqtt_server = "llmpi";
 const char *HostName = "Feeder_MQTT_01";
 const char *topic_Feeder = "FEEDER";
