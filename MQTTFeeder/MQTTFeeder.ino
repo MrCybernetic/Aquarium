@@ -25,7 +25,7 @@ void callback(String topic, byte *message, unsigned int length)
     {
         digitalWrite(0, HIGH);
         unsigned long start = millis();
-        while (millis() - start < 20000)
+        while (millis() - start < 40000)
         {
             client.loop();
             delay(10);
