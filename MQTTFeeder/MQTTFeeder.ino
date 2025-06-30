@@ -5,10 +5,25 @@
 #include <ArduinoOTA.h>
 #include "secrets.h"
 
+/*
+ * WIRING CONNECTIONS:
+ *
+ * ESP8266-01 <-> Arduino Uno:
+ *   GPIO0    <-> Pin 3 (receives feedback from Arduino)
+ *   GPIO2    <-> Pin 2 (sends trigger to Arduino)
+ *
+ * DRV8825 <-> Arduino Uno:
+ *   STEP     <-> Pin 4
+ *   SLP      <-> Pin 5
+ */
+
 const char *mqtt_server = "llmpi";
 const char *HostName = "Feeder_MQTT_01";
 const char *topic_Feeder = "FEEDER";
 const char *topic_Feeder_OK = "FEEDER_OK";
+const char *topic_Error_Handler = "error_Handler";
+
+#define FEEDBACK_INPUT 0 // GPIO0 - receives feedback from Arduino pin 3
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -23,15 +38,25 @@ void callback(String topic, byte *message, unsigned int length)
 
     if (topic == topic_Feeder && messageTemp == "ON")
     {
-        digitalWrite(0, HIGH);
-        unsigned long start = millis();
-        while (millis() - start < 40000)
+        Serial.println("MQTT command received: Activating feeder");
+        digitalWrite(2, LOW);
+        Serial.println("Trigger sent to Arduino (LOW)");
+
+        bool feedbackReceived = waitForFeedback(); // Wait for feedback from UnoFeeder
+
+        digitalWrite(2, HIGH);
+        Serial.println("Trigger released (HIGH)");
+
+        if (feedbackReceived)
         {
-            client.loop();
-            delay(10);
+            Serial.println("Publishing: Feeder activated");
+            client.publish(topic_Feeder_OK, "Feeder activated", true);
         }
-        digitalWrite(0, LOW);
-        client.publish(topic_Feeder_OK, "Feeder activated", true);
+        else
+        {
+            Serial.println("Publishing: Feeder timeout");
+            client.publish(topic_Error_Handler, "Feeder timeout", true);
+        }
     }
 }
 
@@ -133,9 +158,36 @@ void setup()
     setup_OTA();
     client.setServer(mqtt_server, 1883);
     client.setCallback(callback);
-    pinMode(0, OUTPUT);
-    digitalWrite(0, LOW);
+    pinMode(2, OUTPUT);
+    digitalWrite(2, HIGH);
+    pinMode(FEEDBACK_INPUT, INPUT); // Set feedback pin as input
     Serial.println("Setup complete");
+}
+
+bool waitForFeedback()
+{
+    unsigned long start = millis();
+    const unsigned long timeout = 30000; // 30 seconds timeout (10s wait + 20s for feed execution)
+
+    Serial.println("Waiting for feedback from Arduino...");
+
+    while (millis() - start < timeout)
+    {
+        if (digitalRead(FEEDBACK_INPUT) == HIGH)
+        {
+            Serial.println("Feedback received from UnoFeeder");
+            // Wait for feedback to go LOW again (debounce) with separate timeout
+            unsigned long debounceStart = millis();
+            while (digitalRead(FEEDBACK_INPUT) == HIGH && millis() - debounceStart < 2000)
+            {
+                delay(10);
+            }
+            return true;
+        }
+        delay(10);
+    }
+    Serial.println("Feedback timeout: No response from UnoFeeder");
+    return false;
 }
 
 void loop()

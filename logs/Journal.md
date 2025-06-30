@@ -41,16 +41,24 @@ En cas d'absence de sources solides, l'IA doit le mentionner explicitement :
 * Nourriture : JBL PRONOVO GUPPY GRANO S, JBL PRONOVO CRABS WAFER M
 * Distribution : automatisée Home Assistant + feeder DIY (tambour 3D), 3 repas/jour
 
-### BAC 2 (Culture) : 5L (30x30 cm, hauteur variable)
+### BAC 2 (Culture) : 5L (31x25 cm, hauteur variable)
 
-* Plantes : basilic, ciboulette, laitue, menthe
-* **Substrat : Billes d'argile expansée** (volume effectif \~3-4L)
-* **Niveau d'eau constant : 5 cm** (système débordement)
-* **Surface d'échange air/eau : 900 cm²** (30x30cm)
-* **Temps de séjour : \~3.6 minutes** par cycle
-* **Hydraulique : Eau arrive au-dessus des billes, débordement uniforme**
-* Retour par tuyau de trop-plein vers BAC 1
-* Éclairage UV : 8h/jour
+* **Configuration spatiale** : 4 zones de plantation distinctes
+  - Zone 1 : Menthe (angle supérieur gauche)
+  - Zone 2 : Ciboulette (angle supérieur droit) 
+  - Zone 3 : Basilic (angle inférieur droit)
+  - Zone 4 : Laitue (angle inférieur gauche)
+
+* **Substrat** : Billes d'argile expansée (volume effectif ~3-4L)
+* **Hydraulique** : 
+  - Arrivée eau latérale au-dessus des billes depuis BAC 1
+  - Évacuation centrale par tuyau Ø16mm à niveau constant (vase communiquant)
+  - Grille Ø90mm protection évacuation
+  - Niveau d'eau stable ~5cm par débordement uniforme
+
+* **Éclairage** : Lampe UV 200x60mm positionnée au-dessus, cycle 8h/jour
+* **Temps de séjour** : ~3.6 minutes par cycle complet
+* **Surface d'échange air/eau** : 775 cm² (310x250mm)
 
 ### Système général
 
@@ -97,7 +105,12 @@ En cas d'absence de sources solides, l'IA doit le mentionner explicitement :
 | 05/06/2025         | ✅✅  | -   | -   | -   | -   | -   | -   | ✨   | Introduction 2 CPO (1 petit clair, 1 plus grand orange). Acclimatation 2h par ajouts progressifs. Petit CPO très mobile, grand CPO caché. Pastille invertébrés ignorée. 3 physes en croissance (localisation tuyau pompe). 4 femelles guppies toujours gestantes. | 👀 Surveillance adaptation CPO + localisation nourriture adaptée. Observation interactions avec physes.         | 📊 Test paramètres 06/06 + évaluation comportement CPO 48h post-intro                  |
 | 06/06/2025         | ✅✅✅ | 15  | 0   | >21 | 15  | 7.2 | 0   | ✨   | **4 physes <1cm** (probablement présentes avant, non détectées). pH légèrement descendu (7.4→7.2). **Passage à 3 repas/jour** justifié par capacité absorption élevée + charge CPO.                                                                               | 💧 Achat eau osmosée + calcul rétroactif GH. 🏖️ Préparation absence 1 semaine.                                   | 📊 Surveillance pH + préparation nourrissage automatique                               |
 | 07/06/2025         | ✅✅  | -   | -   | -   | -   | -   | -   | ✨   | RAS. Eau toujours claire. Comportement normal des guppies et invertébrés.                                                                                                                                                                                         | 👀 Observation continue, aucun ajustement requis                                                                | 🔁 Maintien du suivi journalier                                                        |
-
+| 08/06/2025         | ✅✅  | -   | -   | -   | -   | -   | -   | ✨   | Changement d'eau 10L osmosé. 6 alevins observés.                                                                                                                                                                                                                  | 💧 Baisse GH ciblée + observation démographie naissante                                                         | 📊 Test stabilisation 09/06 + monitoring croissance alevins                            |
+| 13/06/2025         | ✅✅  | 10  | 0   | >21 | 10  | 7   | 0   | ✨   | Départ absence 1 semaine. Rideaux fermés à 90 %. 2 tranches carottes mises hier soir, poissons y goûtent. CPO et poissons actifs. 15 alevins, 5 physes, eau très claire.                                                                                          | 🏖️ Surveillance automatique, lumière/UV pilotés Home Assistant                                                  | 🔁 Reprise observation à retour, test complet prévu                                    |
+| 20/06/2025         | ✅✅  | 10  | 0   | >21 | 10  | 7   | 0   | ✨   | Retour absence 7j, pièce 26°C. Population saine, 15+ alevins. Basilic/menthe performants (taillés/replantés). Ciboulette pourri, laitue faible. Élodées croissance hétérogène, algues vitres. 2 pastilles CPO appréciées.                                         | 🌿 Maintenance + remplacement ciboulette/laitue par cresson/persil                                              | 🔧 Test stabilisation GH + adaptation nouvelles plantations                            |
+| 27/06/2025         | ✅✅  | 0   | 0   | ~21 | 10  | 7   | 0   | ✨   | CPO : mue difficile depuis 25/06, partie basse collée, mobilité réduite → isolation saladier. 1 Guppy femelle : nage peu, position oblique. T° 27°C→25°C (extinction éclairage).                                                                                  | ⚠️ Isolation CPO + surveillance thermique. Contrôle GH limite max.GH abaissé à >4°d avec eau osmosée.           | 🦐 Évolution mue + comportement guppy à surveiller 48h                                 |
+| 28/06/2025         | ❌   | -   | -   | -   | -   | -   | -   | ✨   | Décès guppy femelle (nageoire manquante observée). CPO mue incomplète : pattes postérieures bloquées dans ancien exosquelette, mobilité critique. Accident feeder v2 : ~3 c.à.c nourriture déversée, nettoyage partiel, suralimentation population.               | ⚠️ Jeûne 29/06. CPO isolation + surveillance dysecdysis 48h critiques.                                          | 💀 Guppy retirée. Pronostic CPO réservé. Suivi paramètres post-suralimentation         |
+| 30/06/2025         | ✅   | 0   | 0   | -   | -   | -   | -   | ✨   | CPO dysecdysis isolé stable/caché. Mue complète trouvée aquarium principal, individu caché (durcissement normal). T° 26°C, éclairage 2h/jour. Alevins/guppies RAS.                                                                                                | 👀 Maintien isolation + surveillance réapparition CPO aquarium                                                  | 🦐 Mobilité CPO isolé + émergence CPO aquarium 48-72h                                  |
 ---
 
 ## 4. Philosophie de gestion (🧹)
@@ -110,14 +123,28 @@ En cas d'absence de sources solides, l'IA doit le mentionner explicitement :
 
 ---
 
-## 5. Décès (⚰️)
+## 5. Décès/Echecs
 
 ### Objectifs
 
-| Date       | Espèce    | Individu | Cause présumée                                         | Commentaire                                                                |
-| ---------- | --------- | -------- | ------------------------------------------------------ | -------------------------------------------------------------------------- |
-| 31/05/2025 | Écrevisse | Crakie   | Stress aigu lié à l'introduction tardive de pouzzolane | Symptômes : léthargie, posture recroquevillée, absence de déplacement >12h |
+| Date       | Espèce     | Individu       | Cause présumée                                         | Commentaire                                                                                                                 |
+| ---------- | ---------- | -------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| 31/05/2025 | Écrevisse  | Crakie         | Stress aigu lié à l'introduction tardive de pouzzolane | Symptômes : léthargie, posture recroquevillée, absence de déplacement >12h                                                  |
+| 22/06/2025 | Laitue     | N/A            | Croissance insuffisante                                | Potentiellement remplacée par cresson alénois, cycle court + robustesse                                                     |
+| 22/06/2025 | Ciboulette | N/A            | Pourrissement racinaire récurrent                      | Remplacement envisagé par persil frisé, cycle court + robustesse                                                            |
+| 28/06/2025 | Guppy      | Femelle adulte | Nageoire manquante (cause/conséquence indéterminée)    | Certainement lié à un pic de chaleur qui l'a affaiblie, peut être qu'elle a perdue sa nageoire dans ce moment de faiblesses |
+---
+## 6. Notes techniques complémentaires
 
+### Gestion thermique estivale
+- T° pièce 26°C (juin 2025) = système stable
+- Population adaptée, pas d'intervention requise
+- Surveillance comportementale vs intervention systématique
+
+### Sélection végétale - Retours d'expérience
+- **Performants :** Basilic, menthe (adaptation confirmée)
+- **Échecs :** Ciboulette (pourrissement racinaire récurrent), laitue (croissance insuffisante)
+- **Remplacements envisagés :** Cresson alénois, persil frisé (cycle court + robustesse)
 ---
 
 **Légende:**
